@@ -1,0 +1,142 @@
+@import "variables";
+@import "mixins";
+
+
+@media all and (min-width: 420px) {
+  .nav-underline {
+    border-bottom: 1px solid #bfc3c4;
+    width: 362px;
+    margin: 0 auto 20px auto;
+  }
+
+  .posts {
+    .post {
+    &-single {
+      min-width: 300px;
+      max-width: 400px;
+      min-height: 300px;
+      max-height: 400px;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 450px){
+  html {
+    font-size:14px;
+  }
+
+  .nav-underline {
+    border-bottom: 1px solid #bfc3c4;
+    width: 400px;
+    margin: 0 auto 20px auto;
+  }
+
+  .posts {
+    .post {
+      &-text {
+        &__title {
+          font-size: 2rem;
+        }
+      }
+      &-text {
+        &-block {
+          &__content {
+
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 768px){
+  html {
+    font-size:10px;
+  }
+  .container-posts {
+    @include padding-left-right(15px, 15px);
+  }
+
+  .nav-underline {
+    width: 640px;
+    margin: 0 0 20px 25px;
+    &-title {
+      &__link {
+        font-size: 2.2rem;
+        padding: 0 40px;
+      }
+    }
+  }
+
+  .posts {
+    .post {
+      &-block {
+        padding: 15px;
+      }
+
+      &-single {
+        margin: 0;
+
+        &:hover, .hover {
+          .post {
+            &-text {
+              &__title {
+                -webkit-transform: translateY(-420%);
+                transform: translateY(-420%);
+              }
+            }
+          }
+        }
+      }
+
+      &-text {
+        &-block {
+
+          &--data {
+            height: 76%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 992px){
+
+  .nav-underline {
+    width: 860px;
+  }
+
+  .posts {
+    .post {
+      &-single {
+        max-width: 360px;
+        max-height: 360px;
+        &:hover, .hover {
+          .post {
+            &-text {
+              &__title {
+                -webkit-transform: translateY(-370%);
+                transform: translateY(-370%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1200px){
+  .container-posts {
+    width: 1200px;
+  }
+}
+
+//@media all and (min-width: 1400px){
+//  .container-posts {
+//    width: 1400px;
+//  }
+//}

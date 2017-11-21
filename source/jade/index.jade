@@ -1,0 +1,57 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=EDGE')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='Blog')
+    meta(name='author', content='Kamila Żabik')
+    title Test
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+    link(href='css/main.css', rel='stylesheet')
+
+  // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', integrity='sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY', crossorigin='anonymous')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', integrity='sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo', crossorigin='anonymous')
+  body
+    #container
+      #row.row
+    .container.container-posts
+      nav.nav-underline.clearfix
+        ul.nav-underline-title
+          li.nav-underline-title__text.active
+            a#newest.nav-underline-title__link(href='#') Newest
+          li.nav-underline-title__text
+            a#popular.nav-underline-title__link(href='#') Most popular
+      .row.posts
+
+        .post-block
+          .thumbnail.post-single
+            img.post__img(src='http://lorempixel.com/400/400/technics', alt='sample1')
+            .caption.post-text
+              h1.post-text__title Est eu laboris deserunt id magna qui
+              .post-text-block.post-text-block--data
+                p.post-text-block__content.post-text-block__content--data 2 March 2016
+
+              .post-text-block
+                p.post-text-block__content
+                  | Cillum officia et aliqua sit ex. Est fugiat voluptate tempor quis adipisicing fugiat proident laboris ea ullamco qui cillum ut. Eu qui elit esse tempor aliquip esse. Eu fugiat irure excepteur sunt. Anim velit
+              a.post-text__link(href='#')
+              .row.post-footer
+                .post-footer__no-hover.post-footer__no-hover--left
+                  time(datetime="2016-03-02") 2 March 2016
+                .post-footer-hover
+                  i.fa.fa-star.pull-left.post-footer__star.post-footer__star--left(aria-hidden='true')
+                  p.post-footer-hover__text.post-footer-hover__text--right 105 votes
+                .post-footer__no-hover.post-footer__no-hover--right
+                  i.fa.fa-star.post-footer__star.post-footer__star--right(aria-hidden='true')
+                  p(data-votes = "105").pull-right 105 votes
+                .post-footer-hover.post-footer-hover--right
+                  a.post-footer-hover__text.post-footer-hover__text--left(href='#') Technology
+
+script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous")
+script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
+script(src='script/main.js')
