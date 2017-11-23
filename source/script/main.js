@@ -1,23 +1,3 @@
-// var ajax = new XMLHttpRequest();
-//
-// ajax.open("GET", "https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=3b5251a70f204fee93d94419f0b1626f", true);
-
-// ajax.onreadystatechange = function(e) {
-//     console.log(this.readyState);
-
-//     if (this.readyState === 4 && this.status === 200) {
-//
-//         console.log(this.response);
-//         var data = JSON.parse(ajax.responseText);
-//
-//         // Retorno do Ajax
-//         console.log(data);
-
-//     }
-// };
-//
-// ajax.send();
-
 function AJAX(url) {
     if(!(this instanceof AJAX)) {
         return new AJAX(url);
@@ -78,14 +58,13 @@ AJAX.prototype._createHTML = function (text,imgUrl,content) {
     postSingle.classList = 'thumbnail post-single';
 
 
-
     postTextTitle.innerText = text;
     postIMG.setAttribute('src', imgUrl);
 
-    postTextBlock.appendChild(postTextBlockText)
+    postTextBlock.appendChild(postTextBlockText);
     postText.appendChild(postTextTitle);
     postText.appendChild(postTextBlock);
-    postText.appendChild(this._createPostContent(content))
+    postText.appendChild(this._createPostContent(content));
     postSingle.appendChild(postIMG);
     postSingle.appendChild(postText);
     postBlock.appendChild(postSingle);
@@ -94,20 +73,95 @@ AJAX.prototype._createHTML = function (text,imgUrl,content) {
 
 AJAX.prototype._createPostContent = function (content) {
     var postTextBlock = document.createElement('div')
-    , postTextBlockText = document.createElement('p')
+    , postTextBlockText = document.createElement('p');
 
-    postTextBlockText.classList = 'post-text-block__content'
-    postTextBlock.classList = 'post-text-block'
+    postTextBlockText.classList = 'post-text-block__content';
+    postTextBlock.classList = 'post-text-block';
 
-    postTextBlockText.innerText = content
+    postTextBlockText.innerText = content;
 
-    postTextBlock.appendChild(postTextBlockText)
+    postTextBlock.appendChild(postTextBlockText);
 
     return postTextBlock;
 };
 
 
-var a = AJAX("https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=3b5251a70f204fee93d94419f0b1626f");
-var b = AJAX("\n" +
-    "https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=3b5251a70f204fee93d94419f0b1626f");
+var urlCategory = function () {
+  var category
+    ,url
+    ,form = document.getElementById('form')
+    ,select = document.getElementsByTagName('select')
+    ,posts = document.getElementsByClassName('posts');
 
+  select[0].addEventListener('change', function (e) {
+  category = form.value;
+  url = 'https://newsapi.org/v2/top-headlines?category='+ category + '&language=en&apiKey=3b5251a70f204fee93d94419f0b1626f';
+console.log(url)
+
+    posts[0].innerHTML = '';
+    while (posts[0].firstChild) {
+      posts[0].removeChild(posts.firstChild);
+    }
+
+    var selectedCategory = AJAX(url);
+  });
+};
+
+
+var firstView = AJAX("https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=3b5251a70f204fee93d94419f0b1626f");
+urlCategory();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function AJAX2(url) {
+//   if(!(this instanceof AJAX2)) {
+//     return new AJAX2(url);
+//   }
+//
+//   this._xhr = new XMLHttpRequest();
+//   this._xhr.open("GET", url, true);
+//   this._assignEvents();
+//   this._xhr.send();
+//
+//   console.log('gggg')
+// }
+//
+// AJAX2.prototype = Object.create(AJAX.prototype);
+// AJAX2.prototype.constructor = AJAX2;
+//
+// AJAX2.prototype._handleResponse = function() {
+//
+//   if(this._xhr.readyState === 4 && this._xhr.status === 200) {
+//
+//     var data = JSON.parse(this._xhr.responseText);
+//     console.log(data);
+//
+//     for(var key in data) {
+//       var articles = data['articles'];
+//
+//       if(key === 'articles') {
+//
+//         for(var prop in articles) {
+//           var articlesProp = articles[prop];
+//           this._createHTML(articlesProp.title, articlesProp.urlToImage, articlesProp.description )
+//         }
+//       }
+//     }
+//   }
+// };

@@ -16,15 +16,21 @@ html(lang='en')
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', integrity='sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY', crossorigin='anonymous')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', integrity='sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo', crossorigin='anonymous')
   body
+
+
     #container
       #row.row
     .container.container-posts
       nav.nav-underline.clearfix
-        ul.nav-underline-title
-          li.nav-underline-title__text.active
-            a#newest.nav-underline-title__link(href='#') Newest
-          li.nav-underline-title__text
-            a#popular.nav-underline-title__link(href='#') Most popular
+        select#form.form-control
+          option(value='business') Business
+          option(value='entertainment') Entertainment
+          option(value='general') General
+          option(value='health-and-medical') health-and-medical
+          option(value='politics') politics
+          option(value='science-and-nature') science-and-nature
+          option(value='technology') technology
+
       .row.posts
 
         .post-block
